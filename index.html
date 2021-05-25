@@ -15,7 +15,7 @@
         <h3>In order to add <span class="fw-bold text-danger">COMMAS,</span> to your list paste list here:</h3>
         <textarea id="otherId" name="paragraph_text" cols="50" rows="10"></textarea>
         <hr>
-        <button onclick="myOtherFunction()">Submit</button>
+        <button onclick="myOtherFunction()">Click for Commas</button>
         <h2 id="demo2"> </h2>
     </div>
     <div id="quotation div">
@@ -24,7 +24,7 @@
         <textarea id="uniqueID" name="paragraph_text" cols="50" rows="1"></textarea>
         <!-- <input type="text" name="name" id="uniqueID" size="100"> -->
         <hr>
-        <button onclick="myFunction()">Submit</button>
+        <button onclick="myFunction()">Click for Quotes</button>
     </label>
     <h2 id="demo"></h2>
 </div>
@@ -35,7 +35,9 @@
     var list;
     function myFunction() {
   var list = document.getElementById("uniqueID").value;
-  var listArr = list.split(',');
+  var listArr = list.split(',').map(function (value) {
+   return value.trim();
+});
   listArr = (JSON.stringify(listArr));
   console.log(listArr);
   document.getElementById("demo").innerHTML = listArr;
