@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Keyword Lists</title>
+</head>
+<body>
+    <div class="container jumbotron text-center">
+        <h1 class="primary center">Keyword List</h1>
+    <div id="commaDiv">
+        <h3>In order to add <span class="fw-bold text-danger">COMMAS,</span> to your list paste list here:</h3>
+        <textarea id="otherId" name="paragraph_text" cols="50" rows="10"></textarea>
+        <hr>
+        <button onclick="myOtherFunction()">Submit</button>
+        <h2 id="demo2"> </h2>
+    </div>
+    <div id="quotation div">
+        <h3> To add <span class="fw-bold text-primary">"QUOTATION MARKS"</span>  around each word in the list paste list here:</h3>
+    <label for="browser">
+        <textarea id="uniqueID" name="paragraph_text" cols="50" rows="10"></textarea>
+        <!-- <input type="text" name="name" id="uniqueID" size="100"> -->
+        <hr>
+        <button onclick="myFunction()">Submit</button>
+    </label>
+    <h2 id="demo"></h2>
+</div>
+</div>
+</body>
+</html>
+<script>
+    var list;
+    function myFunction() {
+  var list = document.getElementById("uniqueID").value;
+  var listArr = list.split(',');
+  listArr = (JSON.stringify(listArr));
+  console.log(listArr);
+  document.getElementById("demo").innerHTML = listArr;
+}
+function myOtherFunction(){
+    var otherArray = [];
+var otherList = document.getElementById("otherId").value;
+console.log(otherList);
+otherArray.push(otherList);
+console.log(otherArray);
+// otherArray = JSON.stringify(otherArray);
+var newList= otherArray.filter(function(item) {
+  return item !== "\n";
+}).map(function(item) {
+  return item.replace(/\n/g,',');
+});
+console.log(newList);
+var myNew = myFunction();
+console.log(myNew);
+  document.getElementById("demo2").innerHTML = newList;
+}
+
+</script>
